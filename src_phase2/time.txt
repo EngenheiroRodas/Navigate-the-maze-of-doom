@@ -1,0 +1,34 @@
+
+
+
+testers/Primeiro/Aranhicos01/250-250-30_01.maps
+
+real	0m0.061s
+user	0m0.049s
+sys	0m0.000s
+Live long and prosper!
+ NavigateChecker: 0
+
+
+
+testers/Primeiro/Aranhicos01/250-250-30_02.maps
+
+real	0m0.060s
+user	0m0.052s
+sys	0m0.000s
+Live long and prosper!
+ NavigateChecker: 0
+
+
+
+testers/Primeiro/Aranhicos01/250-250-30_03.maps
+
+real	0m0.531s
+user	0m0.489s
+sys	0m0.000s
+Do that again... I dare you!
+ NavigateChecker: 0
+
+
+
+testers/Primeiro/Aranhicos01/250-250-30_04.maps

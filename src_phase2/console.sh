@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-rm *.txt
+rm $MODE.txt
 make clean;
 make DEBUG=!
 
