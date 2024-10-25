@@ -1,14 +1,189 @@
 
 
 
-Professor/21.1maps
+Processing Professor/21.1maps
+
+real	0m0.003s
+user	0m0.000s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/Uma_tradicao_que...nao.1maps...se_pode_perder_que_e_estender_o_guardanapo.1maps_a_ver_se_o_pessoal_abre_a_pestanhinha.1maps
+
+real	0m4.633s
+user	0m4.291s
+sys	0m0.095s
+You did it, the files match!
+
+
+
+Processing Professor/t7001.1maps
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7002.1maps
+
+real	0m0.003s
+user	0m0.003s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7003.1maps
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7004.1maps
 
 real	0m0.004s
-user	0m0.002s
+user	0m0.001s
 sys	0m0.000s
-You're dumb brother:  differs from 
-./console.sh: line 33: Professor/21.1maps: Permission denied
+You did it, the files match!
 
 
 
-Professor/Uma_tradicao_que...nao.1maps...se_pode_perder_que_e_estender_o_guardanapo.1maps_a_ver_se_o_pessoal_abre_a_pestanhinha.1maps
+Processing Professor/t7005.1maps
+
+real	0m0.006s
+user	0m0.003s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7006.1maps
+
+real	0m0.006s
+user	0m0.007s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7007.1maps
+
+real	0m0.056s
+user	0m0.045s
+sys	0m0.009s
+You did it, the files match!
+
+
+
+Processing Professor/t7008.1maps
+
+real	0m0.011s
+user	0m0.010s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7009.1maps
+
+real	0m0.400s
+user	0m0.348s
+sys	0m0.019s
+You did it, the files match!
+
+
+
+Processing Professor/t7010.1maps
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7011.1maps
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.002s
+You did it, the files match!
+
+
+
+Processing Professor/t7012.1maps
+
+real	0m0.168s
+user	0m0.141s
+sys	0m0.009s
+You did it, the files match!
+
+
+
+Processing Professor/t7014.1maps
+
+real	0m4.654s
+user	0m4.224s
+sys	0m0.150s
+You did it, the files match!
+
+
+
+Processing Professor/t7015.1maps
+
+real	0m0.767s
+user	0m0.697s
+sys	0m0.019s
+You did it, the files match!
+
+
+
+Processing Professor/t7017.1maps
+
+real	0m0.350s
+user	0m0.317s
+sys	0m0.009s
+You did it, the files match!
+
+
+
+Processing Professor/t7018.1maps
+
+real	0m0.362s
+user	0m0.338s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t7019.1maps
+
+real	0m1.406s
+user	0m1.293s
+sys	0m0.019s
+You did it, the files match!
+
+
+
+Processing Professor/t7020.1maps
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s
+You did it, the files match!
+
+
+
+Processing Professor/t9022.1maps
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.000s
+You did it, the files match!
