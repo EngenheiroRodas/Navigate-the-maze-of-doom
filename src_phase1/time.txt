@@ -1,0 +1,14 @@
+
+
+
+Professor/21.1maps
+
+real	0m0.004s
+user	0m0.002s
+sys	0m0.000s
+You're dumb brother:  differs from 
+./console.sh: line 33: Professor/21.1maps: Permission denied
+
+
+
+Professor/Uma_tradicao_que...nao.1maps...se_pode_perder_que_e_estender_o_guardanapo.1maps_a_ver_se_o_pessoal_abre_a_pestanhinha.1maps
