@@ -2,8 +2,8 @@
 
 AED Project 24/25: IST-NAVIGATE
 
-## Preface
-In this project, we aim to develop a program capable of navigating through static rectangular maps where only horizontal and vertical movements are allowed. Each cell in these maps has an attribute representing energy, which can be negative, zero, or positive. The goal is for a student (from LEEC, of course) placed in one of the cells to navigate the map, gaining and losing energy upon entering cells, with the objective of maximizing their energy if possible.
+## About the project
+In this project, we aim to develop a program capable of navigating through static rectangular maps where only horizontal and vertical movements are allowed. Each cell in these maps has an attribute representing energy, which can be negative, zero, or positive. The goal is for a student (from ECE, of course) placed in one of the cells to navigate the map, gaining and losing energy upon entering cells, with the objective of maximizing their energy if possible.
 
 ### Restrictions:
 1. The student cannot use any cell more than once, including the starting cell.
