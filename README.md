@@ -30,6 +30,7 @@ The program has an executable named `navigate` and requires a single argument: t
 For example, for the final phase, the program `navigate` should be invoked from the command line as follows:
 ```sh
 ./navigate <filename>.maps
+```
 
 
 Input Format
