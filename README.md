@@ -33,18 +33,16 @@ For example, for the final phase, the program `navigate` should be invoked from 
 ```
 
 
-Input Format
-
-The input file has an extension .1maps and may contain multiple problems, each with different dimensions. The first line of each problem (header) consists of:
-
-    Map dimensions, L (rows) and C (columns).
-    Coordinates of a starting point, l and c, identifying a cell on the map.
-    Number of steps k (with k < 0 for task #1, k > 0 for task #2, or k = 0 for task #3).
-    If k = 0, two additional integers, l2 and c2, are included.
+### Input Format
+The input file has an extension `.1maps` and may contain multiple problems, each with different dimensions. The first line of each problem (header) consists of:
+1. Map dimensions, L (rows) and C (columns).
+2. Coordinates of a starting point, l and c, identifying a cell on the map.
+3. Number of steps k (with k < 0 for task #1, k > 0 for task #2, or k = 0 for task #3).
+4. If k = 0, two additional integers, l2 and c2, are included.
 
 Following the header are L x C integers representing the energy associated with each cell.
-Output Format
 
-For the intermediate phase, the output file has the same name as the input file but with the extension .sol1maps, and includes the results for all problems in the input file.
+### Output Format
+For the intermediate phase, the output file has the same name as the input file but with the extension `.sol1maps`, and includes the results for all problems in the input file.
 
-For the final phase, the output file has the same name as the input file but with the extension .solmaps, and includes the final energy or indicates that the problem has no solution.
+For the final phase, the output file has the same name as the input file but with the extension `.solmaps`, and includes the final energy or indicates that the problem has no solution.
