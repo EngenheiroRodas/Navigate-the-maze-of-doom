@@ -24,6 +24,6 @@ void process_grids(FILE *fp, int** grid, char *solutionName);
 int bfs_modular(int **grid, int rows, int cols, int startX, int startY, int kstep, int taskType);
 
 // Função que move o para o destino
-void move_to_destination(FILE *output, int **grid, int rows, int cols, int startRow, int startCol, int destRow, int destCol);
+void move_to_destination(FILE *output, int **grid, int rows, int cols, int startRow, int startCol, int destRow, int destCol); 
 
 #endif

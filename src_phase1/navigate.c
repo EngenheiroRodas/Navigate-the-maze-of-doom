@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
     const char *inputExtension = ".1maps";
     const char *solExtension = ".sol1maps";
     
-    int maxRows = -1, maxCols = -1;
+    int maxRows = -1, maxCols = -1; 
     int **grid;
     FILE *fp;
     char *solName, *inputFile = argv[1];

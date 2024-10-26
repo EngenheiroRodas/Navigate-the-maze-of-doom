@@ -8,7 +8,7 @@ endif
 
 CFLAGS = -Wall -std=c99 $(MODE) 
 
-TARGET = navigate
+TARGET = navigate 
 
 SRCS = navigate.c graph.c stack.c
 

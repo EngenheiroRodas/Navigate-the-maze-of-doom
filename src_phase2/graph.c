@@ -398,7 +398,7 @@ bool dfsT2(Node* currentNode, Stack* stack, Stack* bestStack, int stepsLeft, int
     int potentialEnergy = best_Bound(currentNode, stepsLeft);
     if (potentialEnergy + energy < *bestFinalEnergy) {
         return false;
-    }
+    } 
 
     // If we have no steps left, check if this path has the highest final energy.
     if (stepsLeft == 0) {

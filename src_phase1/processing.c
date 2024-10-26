@@ -18,7 +18,7 @@ void process_grids(FILE *fp, int** grid, char *solutionName) {
             if (fscanf(fp, "%d %d", &destRow, &destCol) != 2) {
                 exit(0);
             }
-        }
+        } 
 
         // Copia os valores para a grelha
         for (int i = 0; i < rows; i++) {
