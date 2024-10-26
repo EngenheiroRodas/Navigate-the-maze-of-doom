@@ -4,7 +4,7 @@
 void find_largest_grid(FILE *fp, int *maxRows, int *maxCols) {
     int rows, cols, initrows, initcols, kstep;
     int destRow = 0, destCol = 0;
-    int grid_numbers, temp, count = 0;
+    int grid_numbers, temp, count = 0; 
     
     // Loop que percorre o ficheiro e encontra o valor máximo de linhas e colunas
     while(fscanf(fp, "%d %d %d %d %d", &rows, &cols, &initrows, &initcols, &kstep) == 5) {
