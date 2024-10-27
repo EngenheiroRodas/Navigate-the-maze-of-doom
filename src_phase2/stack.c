@@ -71,6 +71,10 @@ Node* peek(Stack* stack) {
     return stack->array[stack->top];
 }
 
+int returnIndex(Stack *stack) {
+    return stack->top;
+}
+
 /* Function to delete the stack and free memory */
 void deleteStack(Stack* stack) {
     free(stack->array);

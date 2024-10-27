@@ -13,5 +13,6 @@ Node* peek(Stack* stack);
 int isFull(Stack* stack);
 int isEmpty(Stack* stack);
 void deleteStack(Stack* stack);
+int returnIndex(Stack *stack);
 
 #endif

@@ -192,33 +192,55 @@ void free_graph(Node *node) {
  *           
  ****************************************************************************/
 
+void calculate_sum(Stack* stack, int *sum) {
+    if (isEmpty(stack)) {
+        return;
+    }
+
+    Node *aux = pop(stack);
+    if (returnIndex(stack) != -1) { // Exclude root node from sum calculation
+        *sum += aux->energy;
+    }
+
+    calculate_sum(stack, sum);
+
+    // Push back to maintain original stack order
+    push(stack, aux);
+}
+
+void print_path_recursive(FILE *output, Stack* stack) {
+    if (isEmpty(stack)) {
+        return;
+    }
+
+    Node *aux = pop(stack);
+
+    // Recursive call to print the rest of the stack in correct order
+    print_path_recursive(output, stack);
+
+    // Print only if it is not the root node
+    if (returnIndex(stack) != -1) {
+        fprintf(output, "%d %d %d\n", aux->row, aux->col, aux->energy);
+    }
+
+    // Push the node back to the stack to preserve original stack order
+    push(stack, aux);
+}
+
 void print_found_path(FILE *output, Stack* stack, int rows, int cols, int targetEnergy, int initRow, int initCol, int kstep, int initEnergy) {
     int sum = initEnergy;
-    Node *aux;
 
-    // Create a temporary stack to store the nodes in reverse order
-    Stack *tempStack = createStack(kstep + 1);  
+    // Calculate the sum first without including the root node
+    calculate_sum(stack, &sum);
 
-    // Reverse the stack to print the path in the correct order
-    for (int i = 0; i < kstep; i++) {
-        aux = pop(stack);
-        sum += aux->energy;
-        push(tempStack, aux);
-    }
-    pop(stack);  
-
-    // Print the first line of the output file
+    // Print the first line of the output file with the sum
     fprintf(output, "%d %d %d %d %d %d %d %d\n", rows, cols, targetEnergy, initRow, initCol, kstep, initEnergy, sum);
-    
-    // Print the path found on the output file
-    while (!isEmpty(tempStack)) {
-        aux = pop(tempStack);
-        fprintf (output, "%d %d %d\n",aux->row, aux->col, aux->energy);
-    }
-    fprintf(output, "\n");
 
-    // Free the temporary stack 
-    deleteStack(tempStack); 
+    // Use recursive function to print path in correct order, excluding the root node
+    print_path_recursive(output, stack);
+
+    // Add newline at the end
+    fprintf(output, "\n");
 
     return;
 }
