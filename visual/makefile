@@ -1,26 +1,29 @@
+# Compiler
 CC = gcc
 
-ifdef DEBUG
-MODE = -g
-else
-MODE = -O3
-endif
+# Compiler flags
+CFLAGS = -g -fdiagnostics-color=always -Wall
 
-CFLAGS = -Wall -std=c99 $(MODE) 
+# Libraries for OpenGL
+LIBS = -lGL -lGLU -lglut
 
-TARGET = navigate 
+# Target executable
+TARGET = graph_visualizer
 
-SRCS = main.c graph.c
+# Source files
+SRCS = main.c graph.c visualization.c
 
-HEADERS = navigate.h
-
+# Object files
 OBJS = $(SRCS:.c=.o)
 
+# Build target
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET) $(LIBS)
 
-%.o: %.c $(HEADERS)
+# Compile .c files to .o
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-  
+
+# Clean target
 clean:
-	rm -f *.o $(TARGET)
+	rm -f $(OBJS) $(TARGET)

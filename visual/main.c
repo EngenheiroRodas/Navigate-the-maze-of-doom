@@ -1,26 +1,40 @@
-#include <string.h>
-#include <stdlib.h>
+#include <GL/glut.h>
 #include <stdio.h>
-#include <stdbool.h>
-
+#include <stdlib.h>
 #include "graph.h"
+#include "visualization.h"
+
+int window_width = 800;
+int window_height = 600;
+Node *root = NULL;
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+    // Set up camera
+    gluLookAt(0, 0, 100, 0, 0, 0, 0, 1, 0);
+
+    // Draw graph as 3D spheres
+    draw_graph(root);
+
+    glutSwapBuffers();
+}
+
+void reshape(int width, int height) {
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45.0, (double)width / (double)height, 1.0, 200.0);
+    glMatrixMode(GL_MODELVIEW);
+}
 
 /*****************************************************************************
  * main ()
- *
- * Arguments: argc, argv
- *
- * Returns: result of the selected task 
- *
- * Description: Navigate a map of LxC, with a given starting point (l0, c0) with k steps, 
- *              all parameters are read from the first line of the input file 
- *
  ****************************************************************************/
 
 int main(int argc, char *argv[]) {
-    int rows, cols, targetEnergy, initrows, initcols, kstep, initEnergy, bestFinalEnergy, temp;  
-
-    Node *root = NULL;
+    int rows, cols, targetEnergy, initrows, initcols, kstep, initEnergy;
 
     if (argc != 2) {
         printf("Usage: %s <input file>\n", argv[0]);
@@ -34,15 +48,35 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Processes the input file 
-    while (fscanf(fp, "%d %d %d %d %d %d %d", &rows, &cols, &targetEnergy, &initrows, &initcols, &kstep, &initEnergy) == 7) {
-        root = build_graph(fp, rows, cols, initrows, initcols, kstep);  
-        
-        free_graph(root); 
+    // Read input file and build the graph
+    if (fscanf(fp, "%d %d %d %d %d %d %d", &rows, &cols, &targetEnergy, &initrows, &initcols, &kstep, &initEnergy) == 7) {
+        root = build_graph(fp, rows, cols, initrows, initcols, kstep);
     }
-    
-    // Closes the file and frees all memory allocated 
     fclose(fp);
+
+    if (!root) {
+        printf("Failed to build graph\n");
+        return 1;
+    }
+
+    // OpenGL/GLUT Initialization
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitWindowSize(window_width, window_height);
+    glutCreateWindow("Graph Visualizer");
+
+    // Register OpenGL callbacks
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+
+    // Set up basic OpenGL settings
+    glEnable(GL_DEPTH_TEST);
+
+    // Start the main loop
+    glutMainLoop();
+
+    // Free graph after the display loop is closed
+    free_graph(root);
 
     return 0;
 }
