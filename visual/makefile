@@ -10,7 +10,7 @@ CFLAGS = -Wall -std=c99 $(MODE)
 
 TARGET = navigate 
 
-SRCS = navigate.c graph.c
+SRCS = main.c graph.c
 
 HEADERS = navigate.h
 
