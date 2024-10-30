@@ -7,6 +7,10 @@
 const float MIN_RADIUS = 0.5f;
 const float MAX_RADIUS = 2.0f;
 
+// Custom colors
+const float START_COLOR[3] = {1.0f, 0.0f, 0.0f}; // Red for start node
+const float NODE_COLOR[3] = {0.5f, 0.8f, 1.0f};  // Light blue for other nodes
+
 // Function to map energy to sphere radius
 float energy_to_radius(int energy) {
     int min_energy = -10;   // Set this according to your data range
@@ -19,10 +23,17 @@ float energy_to_radius(int energy) {
     return MIN_RADIUS + (MAX_RADIUS - MIN_RADIUS) * (float)(energy - min_energy) / (max_energy - min_energy);
 }
 
-// Recursive function to draw each node as a sphere
-void draw_node(Node *node, float x, float y, float z, float spacing) {
+// Modify the draw_node function to use custom colors
+void draw_node(Node *node, float x, float y, float z, float spacing, bool isStartNode) {
     if (!node || node->visited) return;  // Avoid re-rendering visited nodes
     node->visited = true;
+
+    // Choose color based on node type
+    if (isStartNode) {
+        glColor3fv(START_COLOR);  // Use red for the start node
+    } else {
+        glColor3fv(NODE_COLOR);   // Use light blue for other nodes
+    }
 
     // Map energy to sphere radius
     float radius = energy_to_radius(node->energy);
@@ -34,10 +45,10 @@ void draw_node(Node *node, float x, float y, float z, float spacing) {
 
     // Recursively draw neighbors
     float offset = spacing;
-    draw_node(node->up, x, y + offset, z, spacing);
-    draw_node(node->down, x, y - offset, z, spacing);
-    draw_node(node->left, x - offset, y, z, spacing);
-    draw_node(node->right, x + offset, y, z, spacing);
+    draw_node(node->up, x, y + offset, z, spacing, false);
+    draw_node(node->down, x, y - offset, z, spacing, false);
+    draw_node(node->left, x - offset, y, z, spacing, false);
+    draw_node(node->right, x + offset, y, z, spacing, false);
 }
 
 // Wrapper function to reset node visit status and call draw_node
@@ -47,8 +58,8 @@ void draw_graph(Node *root) {
     // Reset visited status for all nodes before drawing
     reset_visited(root);
 
-    // Start drawing from root node
-    draw_node(root, 0.0f, 0.0f, 0.0f, 5.0f);
+    // Start drawing from root node as the start node (red color)
+    draw_node(root, 0.0f, 0.0f, 0.0f, 5.0f, true);
 }
 
 // Helper function to reset visited status for all nodes

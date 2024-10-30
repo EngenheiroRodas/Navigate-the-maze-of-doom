@@ -19,13 +19,14 @@ int lastMouseX, lastMouseY;   // Store the last mouse position for dragging
 bool isRightMouseButton = false; // Track if the right mouse button is pressed
 
 void display() {
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background to white
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
     // Set up camera with zoom, rotation, and translation
-    glTranslatef(cameraPosX, cameraPosY, zoom);  // Zoom and translate camera
-    glRotatef(rotationX, 1.0f, 0.0f, 0.0f);     // Rotate around X-axis
-    glRotatef(rotationY, 0.0f, 1.0f, 0.0f);     // Rotate around Y-axis
+    glTranslatef(cameraPosX, cameraPosY, zoom);          // Zoom and translate camera
+    glRotatef(rotationX, 1.0f, 0.0f, 0.0f);              // Rotate around X-axis
+    glRotatef(rotationY, 0.0f, 1.0f, 0.0f);              // Rotate around Y-axis
 
     // Draw graph as 3D spheres
     draw_graph(root);
@@ -84,7 +85,7 @@ void mouseButton(int button, int state, int x, int y) {
         lastMouseY = y;
         isRightMouseButton = true;   // Right button: translate
     }
-
+    
     // Detect scroll wheel action (may vary by system; often uses middle button up/down codes)
     if (button == 3) {  // Scroll up
         zoom += 5.0f;
