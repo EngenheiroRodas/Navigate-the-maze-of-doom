@@ -88,13 +88,14 @@ void mouseButton(int button, int state, int x, int y) {
 
 int main(int argc, char *argv[]) {
     int rows, cols, targetEnergy, initrows, initcols, kstep, initEnergy;
+    FILE *fp;
 
     if (argc != 2) {
         printf("Usage: %s <input file>\n", argv[0]);
         return 1;
     }
 
-    FILE *fp = fopen(argv[1], "r");
+    fp = fopen(argv[1], "r");
     if (!fp) {
         perror("Failed to open file");
         return 1;
@@ -103,6 +104,7 @@ int main(int argc, char *argv[]) {
     if (fscanf(fp, "%d %d %d %d %d %d %d", &rows, &cols, &targetEnergy, &initrows, &initcols, &kstep, &initEnergy) == 7) {
         root = build_graph(fp, rows, cols, initrows, initcols, kstep);
     }
+    // Close file
     fclose(fp);
 
     if (!root) {
@@ -128,6 +130,7 @@ int main(int argc, char *argv[]) {
     // Start the main loop
     glutMainLoop();
 
+    // Free memory
     free_graph(root);
     return 0;
 }

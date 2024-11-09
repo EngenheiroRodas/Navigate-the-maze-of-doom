@@ -4,8 +4,8 @@
 #include "graph.h"
 
 float energy_to_radius(int energy) {
-    int min_energy = -10;
-    int max_energy = 50;
+    int min_energy = -10, max_energy = 50;
+
     if (energy < min_energy) energy = min_energy;
     if (energy > max_energy) energy = max_energy;
     return 0.5f + (2.0f - 0.5f) * (float)(energy - min_energy) / (max_energy - min_energy);
@@ -22,13 +22,13 @@ void set_node_color(int energy, bool isStartNode) {
 }
 
 void draw_edge(float x1, float y1, float z1, float x2, float y2, float z2) {
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glPushMatrix();
-    glTranslatef(x1, y1, z1);
-
     float dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
     float distance = sqrt(dx * dx + dy * dy + dz * dz);
     float angle = acos(dz / distance) * 180.0 / M_PI;
+
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glPushMatrix();
+    glTranslatef(x1, y1, z1);
 
     glRotatef(angle, -dy, dx, 0.0);
     GLUquadric *quad = gluNewQuadric();
@@ -38,11 +38,13 @@ void draw_edge(float x1, float y1, float z1, float x2, float y2, float z2) {
 }
 
 void draw_node(Node *node, float x, float y, float z, float spacing, bool isStartNode) {
+    float radius;
+
     if (!node || node->visited) return;
     node->visited = true;
 
     set_node_color(node->energy, isStartNode);
-    float radius = energy_to_radius(node->energy);
+    radius = energy_to_radius(node->energy);
 
     glPushMatrix();
     glTranslatef(x, y, z);
@@ -84,5 +86,3 @@ void draw_graph(Node *root) {
     reset_visited(root);
     draw_node(root, 0.0f, 0.0f, 0.0f, 5.0f, true);
 }
-
-
