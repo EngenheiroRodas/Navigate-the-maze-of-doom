@@ -1,0 +1,1 @@
+make it have heights based on values. And represent the whole graph. add edges
