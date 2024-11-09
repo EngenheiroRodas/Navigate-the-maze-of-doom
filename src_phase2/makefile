@@ -12,7 +12,7 @@ TARGET = navigate
 
 SRCS = navigate.c graph.c stack.c
 
-HEADERS = navigate.h stack.h
+HEADERS = graph.h stack.h
 
 OBJS = $(SRCS:.c=.o)
 

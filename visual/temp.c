@@ -4,6 +4,13 @@
 
 #include "graph.h"
 
+struct node_ {
+    int row, col;     
+    int energy;      
+    bool visited;      
+    struct node_ *up, *down, *left, *right;  
+};
+
 /*****************************************************************************
  * create_node ()
  *
@@ -19,15 +26,14 @@
 Node* create_node(int row, int col, int energy) {
     Node *newNode = (Node *)malloc(sizeof(Node));
     if (!newNode) {
-        perror("Error while creating node!");
-        exit(1);
+        exit(0);
     }
 
 
     newNode->row = row;
     newNode->col = col;
     newNode->energy = energy;
-    newNode->visited = false;
+    newNode->visited = false;  
     newNode->up = newNode->down = newNode->left = newNode->right = NULL;
 
     return newNode;
@@ -77,8 +83,7 @@ Node* build_graph(FILE *fp, int rows, int cols, int initRow, int initCol, int ks
     for (int row = 1; row <= rows; row++) {
         for (int col = 1; col <= cols; col++) {
             if (fscanf(fp, "%d", &value) != 1) {
-                perror("Error reading value!");
-                exit(1);  // Handle errors in input reading
+                exit(0);  // Handle errors in input reading
             }
 
             // Calculate relative position in node_matrix

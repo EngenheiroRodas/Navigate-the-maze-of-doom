@@ -1,5 +1,7 @@
 #include <GL/glut.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdio.h>
 #include "visualization.h"
 #include "graph.h"
 

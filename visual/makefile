@@ -1,10 +1,11 @@
 # Compiler
 CC = gcc
 
+# Debug and optimization flags
 ifdef DEBUG
-	MODE = -g
+    MODE = -g
 else
-	MODE = -O3
+    MODE = -O3
 endif
 
 # Compiler flags
@@ -14,22 +15,29 @@ CFLAGS = $(MODE) -fdiagnostics-color=always -Wall
 LIBS = -lGL -lGLU -lglut -lm
 
 # Target executable
-TARGET = graph_visualizer
+TARGET = visual
 
-# Source files
-SRCS = main.c graph.c visualization.c
+# Source and header files
+SRCS = main.c graph.c visualization.c stack.c
+HEADERS = visualization.h graph.h stack.h
 
 # Object files
 OBJS = $(SRCS:.c=.o)
 
-# Build target
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET) $(LIBS)
+# Default build target
+all: $(TARGET)
 
-# Compile .c files to .o
-%.o: %.c
+# Link object files to create the executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+
+# Rule for creating object files
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean target
+# Clean up build artifacts
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f *.o $(TARGET)
+
+# Phony targets
+.PHONY: all clean

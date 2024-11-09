@@ -1,7 +1,10 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
 #include "graph.h"
+#include "stack.h"
 #include "visualization.h"
 
 #define WINDOW_WIDTH 800
