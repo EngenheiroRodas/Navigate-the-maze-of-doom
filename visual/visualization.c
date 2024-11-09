@@ -10,7 +10,7 @@ const float MIN_RADIUS = 0.5f;
 const float MAX_RADIUS = 2.0f;
 
 // Custom colors
-const float START_COLOR[3] = {1.0f, 0.0f, 0.0f}; // Red for start node
+const float START_COLOR[3] = {1.0f, 0.84f, 0.0f}; // Red for start node
 
 // Function to map energy to sphere radius
 float energy_to_radius(int energy) {
@@ -28,9 +28,9 @@ void set_node_color(int energy, bool isStartNode) {
     if (isStartNode) {
         glColor3fv(START_COLOR);  // Red for start node
     } else if (energy >= 0) {
-        glColor3f(0.5f, 0.8f, 1.0f);  // Blue for positive energy
+        glColor3f(0.29f, 0.56f, 0.89f); // Soft blue color
     } else {
-        glColor3f(0.5f, 1.0f, 0.5f);  // Green for negative energy
+        glColor3f(0.31f, 0.72f, 0.28f); // Muted green color
     }
 }
 
@@ -44,12 +44,7 @@ void draw_edge(float x1, float y1, float z1, float x2, float y2, float z2, int e
     glPushMatrix();
     glTranslatef(x1, y1, z1);
 
-    // Set edge color to match node based on energy
-    if (energy >= 0) {
-        glColor3f(0.5f, 0.8f, 1.0f);  // Blue for positive
-    } else {
-        glColor3f(0.5f, 1.0f, 0.5f);  // Green for negative
-    }
+    glColor3f(0.0f, 0.0f, 0.0f); // Black color for edges
 
     // Rotate cylinder to align with the direction of the edge
     float angle = acos(dz / distance) * 180.0 / M_PI;

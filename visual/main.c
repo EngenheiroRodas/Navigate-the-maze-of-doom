@@ -19,7 +19,7 @@ int lastMouseX, lastMouseY;   // Store the last mouse position for dragging
 bool isRightMouseButton = false; // Track if the right mouse button is pressed
 
 void display() {
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background to white
+    glClearColor(0.18f, 0.18f, 0.18f, 1.0f); // Dark gray background
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
