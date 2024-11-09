@@ -2,10 +2,10 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -g -fdiagnostics-color=always -Wall
+CFLAGS = -g -fdiagnostics-color=always -Wall 
 
 # Libraries for OpenGL
-LIBS = -lGL -lGLU -lglut
+LIBS = -lGL -lGLU -lglut -lm
 
 # Target executable
 TARGET = graph_visualizer
