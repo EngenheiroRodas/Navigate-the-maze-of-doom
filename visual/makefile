@@ -1,8 +1,14 @@
 # Compiler
 CC = gcc
 
+ifdef DEBUG
+	MODE = -g
+else
+	MODE = -O3
+endif
+
 # Compiler flags
-CFLAGS = -g -fdiagnostics-color=always -Wall 
+CFLAGS = $(MODE) -fdiagnostics-color=always -Wall 
 
 # Libraries for OpenGL
 LIBS = -lGL -lGLU -lglut -lm

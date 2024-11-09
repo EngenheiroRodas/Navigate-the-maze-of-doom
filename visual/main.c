@@ -4,8 +4,9 @@
 #include "graph.h"
 #include "visualization.h"
 
-int window_width = 800;
-int window_height = 600;
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
+
 Node *root = NULL;
 
 // Initial camera settings
@@ -40,16 +41,6 @@ void reshape(int width, int height) {
     glLoadIdentity();
     gluPerspective(45.0, (double)width / (double)height, 1.0, 500.0);
     glMatrixMode(GL_MODELVIEW);
-}
-
-// Handle mouse scroll for zooming
-void mouseWheel(int button, int dir, int x, int y) {
-    if (dir > 0) {
-        zoom += 5.0f;  // Zoom in
-    } else {
-        zoom -= 5.0f;  // Zoom out
-    }
-    glutPostRedisplay();  // Request redisplay
 }
 
 // Handle mouse drag for rotation and translation
@@ -103,14 +94,12 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Load the graph from the input file
     FILE *fp = fopen(argv[1], "r");
     if (!fp) {
         perror("Failed to open file");
         return 1;
     }
 
-    // Read input file and build the graph
     if (fscanf(fp, "%d %d %d %d %d %d %d", &rows, &cols, &targetEnergy, &initrows, &initcols, &kstep, &initEnergy) == 7) {
         root = build_graph(fp, rows, cols, initrows, initcols, kstep);
     }
@@ -124,23 +113,21 @@ int main(int argc, char *argv[]) {
     // OpenGL/GLUT Initialization
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(window_width, window_height);
+    glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     glutCreateWindow("Graph Visualizer");
 
     // Register OpenGL callbacks
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
-    glutMouseFunc(mouseButton);     // Track mouse button state for dragging
-    glutMotionFunc(mouseMotion);    // Track mouse motion for rotation/translation
+    glutMouseFunc(mouseButton);
+    glutMotionFunc(mouseMotion);
 
-    // Set up basic OpenGL settings
+    // Set up OpenGL settings
     glEnable(GL_DEPTH_TEST);
 
     // Start the main loop
     glutMainLoop();
 
-    // Free graph after the display loop is closed
     free_graph(root);
-
     return 0;
 }
