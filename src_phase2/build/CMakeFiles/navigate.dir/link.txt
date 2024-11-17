@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/navigate.dir/navigate.c.o CMakeFiles/navigate.dir/graph.c.o CMakeFiles/navigate.dir/stack.c.o -o navigate

@@ -28,7 +28,7 @@ for file in testers/*.1maps; do
     if [ "$MODE" == "time" ]; then
         { time ./build/navigate "$file"; } 2>&1 | tee -a "$MODE.txt"
     elif [ "$MODE" == "valgrind" ]; then
-        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./navigate "$file" 2>&1 | tee -a "$MODE.txt"
+        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./build/navigate "$file" 2>&1 | tee -a "$MODE.txt"
     fi
 
     # Define expected and output file names
@@ -53,6 +53,3 @@ for file in testers/*.1maps; do
         echo "Warning: Expected file $expected_file not found." | tee -a "$MODE.txt"
     fi
 done
-
-#cd build
-#make clean
