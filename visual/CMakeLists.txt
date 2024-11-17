@@ -3,14 +3,16 @@ project(NavigateProject LANGUAGES C)
 
 # Add the source files
 set(SOURCES
-    navigate.c
-    builder.c
-    navigation.c
-    processing.c
+    main.c
+    graph.c
+    visualization.c
 )
 
 # Add the executable
-add_executable(navigate ${SOURCES})
+add_executable(visual ${SOURCES})
+
+# Link libraries in the correct order
+target_link_libraries(visual PRIVATE GL GLU glut m)
 
 # Create custom targets for debug and release
 add_custom_target(debug
@@ -25,7 +27,7 @@ add_custom_target(release
 
 # Default compile options (Release)
 if(NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "Release")
-    target_compile_options(navigate PRIVATE -O3 -Wall)
+    target_compile_options(visual PRIVATE -O3 -Wall)
 elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_options(navigate PRIVATE -g -Wall)
+    target_compile_options(visual PRIVATE -g -Wall)
 endif()

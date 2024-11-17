@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/visual.dir/main.c.o CMakeFiles/visual.dir/graph.c.o CMakeFiles/visual.dir/visualization.c.o -o visual  -lGL -lGLU -lglut -lm
