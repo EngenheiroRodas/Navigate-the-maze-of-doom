@@ -129,6 +129,32 @@ navigate/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigate.dir/build.make CMakeFiles/navigate.dir/build
 .PHONY : navigate/fast
 
+#=============================================================================
+# Target rules for targets named debug
+
+# Build rule for target.
+debug: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 debug
+.PHONY : debug
+
+# fast build rule for target.
+debug/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/debug.dir/build.make CMakeFiles/debug.dir/build
+.PHONY : debug/fast
+
+#=============================================================================
+# Target rules for targets named release
+
+# Build rule for target.
+release: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 release
+.PHONY : release
+
+# fast build rule for target.
+release/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/release.dir/build.make CMakeFiles/release.dir/build
+.PHONY : release/fast
+
 builder.o: builder.c.o
 .PHONY : builder.o
 
@@ -233,6 +259,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... debug"
+	@echo "... release"
 	@echo "... navigate"
 	@echo "... builder.o"
 	@echo "... builder.i"
