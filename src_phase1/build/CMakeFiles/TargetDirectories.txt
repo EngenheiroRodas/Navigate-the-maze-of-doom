@@ -1,0 +1,3 @@
+/home/bossman/projects/AED/navigate/src_phase1/build/CMakeFiles/navigate.dir
+/home/bossman/projects/AED/navigate/src_phase1/build/CMakeFiles/edit_cache.dir
+/home/bossman/projects/AED/navigate/src_phase1/build/CMakeFiles/rebuild_cache.dir
