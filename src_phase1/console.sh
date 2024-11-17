@@ -13,19 +13,22 @@ fi
 # Remove previous log file if it exists
 rm -f "$MODE.txt"
 
-
 cd build
-make
+if [ "$MODE" == "time" ]; then
+    make release
+elif [ "$MODE" == "valgrind" ]; then
+    make debug
+fi
 cd ..
 
-for file in Professor/*.1maps; do
+for file in testers/*.1maps; do
     echo -e "\n\n\nProcessing $file" | tee -a "$MODE.txt"
 
     # Run navigate with either time or valgrind based on MODE
     if [ "$MODE" == "time" ]; then
         { time ./build/navigate "$file"; } 2>&1 | tee -a "$MODE.txt"
     elif [ "$MODE" == "valgrind" ]; then
-        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./navigate "$file" 2>&1 | tee -a "$MODE.txt"
+        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./build/navigate "$file" 2>&1 | tee -a "$MODE.txt"
     fi
 
     # Define expected and output file names
@@ -50,7 +53,3 @@ for file in Professor/*.1maps; do
         echo "Warning: Expected file $expected_file not found." | tee -a "$MODE.txt"
     fi
 done
-
-cd build 
-make clean
-cd ..

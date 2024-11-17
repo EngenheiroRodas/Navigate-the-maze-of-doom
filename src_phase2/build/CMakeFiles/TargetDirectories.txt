@@ -1,0 +1,5 @@
+/home/bossman/projects/AED/navigate/src_phase2/build/CMakeFiles/navigate.dir
+/home/bossman/projects/AED/navigate/src_phase2/build/CMakeFiles/debug.dir
+/home/bossman/projects/AED/navigate/src_phase2/build/CMakeFiles/release.dir
+/home/bossman/projects/AED/navigate/src_phase2/build/CMakeFiles/edit_cache.dir
+/home/bossman/projects/AED/navigate/src_phase2/build/CMakeFiles/rebuild_cache.dir
