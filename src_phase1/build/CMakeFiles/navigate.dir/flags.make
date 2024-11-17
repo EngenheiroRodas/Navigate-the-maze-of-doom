@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = 
 
-C_FLAGS = -O3 -DNDEBUG -O3 -Wall
+C_FLAGS = -g -g -Wall
 

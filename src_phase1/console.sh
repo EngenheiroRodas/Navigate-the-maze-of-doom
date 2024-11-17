@@ -13,12 +13,15 @@ fi
 # Remove previous log file if it exists
 rm -f "$MODE.txt"
 
-
 cd build
-make
+if [ "$MODE" == "time" ]; then
+    make release
+elif [ "$MODE" == "valgrind" ]; then
+    make debug
+fi
 cd ..
 
-for file in Professor/*.1maps; do
+for file in testers/*.1maps; do
     echo -e "\n\n\nProcessing $file" | tee -a "$MODE.txt"
 
     # Run navigate with either time or valgrind based on MODE
@@ -51,6 +54,5 @@ for file in Professor/*.1maps; do
     fi
 done
 
-cd build 
-make clean
-cd ..
+#cd build
+#make clean
