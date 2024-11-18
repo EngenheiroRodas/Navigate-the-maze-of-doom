@@ -1,1 +1,1 @@
-/usr/bin/cc -O3 -DNDEBUG CMakeFiles/navigate.dir/navigate.c.o CMakeFiles/navigate.dir/builder.c.o CMakeFiles/navigate.dir/navigation.c.o CMakeFiles/navigate.dir/processing.c.o -o navigate
+/usr/bin/cc CMakeFiles/navigate.dir/navigate.c.o CMakeFiles/navigate.dir/builder.c.o CMakeFiles/navigate.dir/navigation.c.o CMakeFiles/navigate.dir/processing.c.o -o navigate
