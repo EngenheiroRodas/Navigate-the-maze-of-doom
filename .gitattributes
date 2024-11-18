@@ -3,6 +3,7 @@ src_phase2/testers/* linguist-vendored
 
 src_phase1/build/** linguist-vendored
 src_phase2/build/** linguist-vendored
+visual/build/** linguist-vendored
 
 README.md linguist-vendored
 LICENSE linguist-vendored
