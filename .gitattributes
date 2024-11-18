@@ -1,9 +1,9 @@
 src_phase1/testers/* linguist-vendored
 src_phase2/testers/* linguist-vendored
 
-src_phase1/build/CMakeFiles/** linguist-vendored
-src_phase2/build/CMakeFiles/** linguist-vendored
-visual/build/CMakeFiles/** linguist-vendored
+src_phase1/build/** linguist-vendored
+src_phase2/build/** linguist-vendored
+visual/build/** linguist-vendored
 
 README.md linguist-vendored
 LICENSE linguist-vendored
