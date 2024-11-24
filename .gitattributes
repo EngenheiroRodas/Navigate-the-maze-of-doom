@@ -1,10 +1,7 @@
-releases/phase1/testers/* linguist-vendored
-releases/phase2/testers/* linguist-vendored
-releases/visual/examples/* linguist-vendored
+releasess/** linguist-vendored
 
 src_code/src_phase1/build/** linguist-vendored
 src_code/src_phase2/build/** linguist-vendored
 src_code/visual/build/** linguist-vendored
 
-README.md linguist-vendored
-LICENSE linguist-vendored
+

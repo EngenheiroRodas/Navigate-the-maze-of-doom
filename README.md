@@ -22,9 +22,9 @@ The input file has an extension `.1maps` and may contain multiple problems, each
 1. Map dimensions, L (rows) and C (columns), where L is the number of rows and C is the number of columns.
 2. Coordinates of a starting point, l and c, identifying a cell on the map (1 ≤ l ≤ L and 1 ≤ c ≤ C).
 3. Number of steps, k, which can be:
---- k < 0 (task #1) (efective step value to use is |k|)
---- k > 0 (task #2)
---- k = 0 (task #3). 
+    - k < 0 (task #1) (effective step value to use is |k|)
+    - k > 0 (task #2)
+    - k = 0 (task #3)
 
 4. If k = 0, the line includes two additional integers, l2 and c2.
 
@@ -52,8 +52,8 @@ If the input file contains more than one problem, the output file will concatena
 The input file has an extension `.maps` and may contain one or more maps to be solved. The header of each problem (first line) always consists of 7 integers:
 1. Map dimensions: L (rows) and C (columns), where L > 0 and C > 0.
 2. An energy value, which represents the task:
---- a positive integer for the minimum energy to reach (task #1)
---- -2 for task #2. 
+    - A positive integer for the minimum energy to reach (task #1)
+    - -2 for task #2.
 
 Any other value is not admissible and indicates no solution.
 
@@ -85,6 +85,13 @@ For example, for the final phase, the program `navigate` should be invoked from 
     ./navigate <filename>.maps
 
 ### Easy run (with script)
-For simplicity, the executables are included in the releases folder along with a script that runs the program and checks if the output produced is correct. 
+For simplicity, the executables are included in the releases folder along with a script that runs the program with all the files in testers folder and checks if the output produced is correct.
 
-For visualizing the cells within range, there is no script included, since this program does not produce any solutions that need to be compared.
+They're available under `releases/phase1` and `releases/phase2` and should be invoked like this:
+
+    ./console.sh 
+
+### Step range visualization
+For visualizing the cells within range, there is an executable under `releases/visual`. Since this program does not produce any solutions, there is no script included to run it, but should be invoked like navigate for phases 1 and 2.
+
+    ./visual <filename>.maps
