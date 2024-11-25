@@ -1,4 +1,4 @@
-releasess/** linguist-vendored
+releases/** linguist-vendored
 
 src_code/src_phase1/build/** linguist-vendored
 src_code/src_phase2/build/** linguist-vendored
